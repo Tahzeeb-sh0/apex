@@ -161,7 +161,7 @@ export default function HeroSection() {
         animate="visible"
         className="
           w-full flex justify-center relative 
-          -mt-[80px] sm:-mt-[120px] md:-mt-[140px] lg:-mt-[150px]
+    
           px-4
         "
       >
