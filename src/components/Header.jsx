@@ -11,7 +11,7 @@ export default function Header() {
   }, [pathname]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-[999] bg-white shadow-md rounded-b-[20px]">
+    <header className="fixed w-full z-[999] bg-white shadow-md rounded-b-[20px]">
       <div className="
         w-full max-w-7xl 
         mx-auto 
