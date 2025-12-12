@@ -5,14 +5,14 @@ import Footer from "./Footer";
 
 export default function Layout() {
   return (
-    <div className="w-full overflow-x-hidden">
-   
-        <Header />
-        <main className="overflow-x-hidden">
-          <Outlet />
-        </main>
-        <Footer />
-     
+    <div className="overflow-x-hidden">
+      <Header />
+
+      <main className="w-full overflow-x-hidden">
+        <Outlet />
+      </main>
+
+      <Footer />
     </div>
   );
 }

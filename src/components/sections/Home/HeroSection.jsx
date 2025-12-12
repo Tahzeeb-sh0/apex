@@ -7,7 +7,7 @@ const slideUp = () => {
   return {
     initial: { y: 150 },
     whileInView: { y: 0 },
-    transition: { duration: 0.8, ease: "easeOut" }
+    transition: { duration: 0.8, ease: "easeOut" },
   };
 };
 
@@ -46,7 +46,6 @@ const cardItem = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-
 export default function HeroSection() {
   const [activeCard, setActiveCard] = useState(null);
 
@@ -61,35 +60,37 @@ export default function HeroSection() {
     <section className="relative w-full -mt-[30px] bg-[#F4F4F4] overflow-hidden">
 
       {/* HERO BACKGROUND */}
-      <div className="
-        w-full relative
-        h-[680px]
-        sm:h-[620px]
-        md:h-[650px]
-        lg:h-[750px]
-        xl:h-[820px]
-      ">
+      <div
+        className="
+          w-full relative
+          h-[600px]
+          sm:h-[620px]
+          md:h-[650px]
+          lg:h-[750px]
+          xl:h-[820px]
+        "
+      >
         <img
           src="/Heroimg.jpg"
           alt="Hero"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
 
-        <div className="absolute inset-0" style={{ background: "#3C2B984D" }} />
+        <div className="absolute inset-0 bg-[#3C2B98]/30" />
 
         {/* HERO CONTENT */}
         <motion.div
           variants={heroContainer}
           initial="hidden"
           animate="visible"
-          className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4"
+          className="relative z-10 h-full flex flex-col justify-center items-center text-center px-5"
         >
           {/* TITLE */}
           <motion.h1
             {...slideUpAnimation}
             className="
               text-white font-medium leading-tight
-              text-[36px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[50px]
+              text-[28px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[50px]
             "
           >
             Building Landmark Spaces in <br />
@@ -100,8 +101,8 @@ export default function HeroSection() {
           <motion.p
             {...slideUpAnimation}
             className="
-              text-white mt-4 max-w-[850px]
-              text-[15px] sm:text-[16px] md:text-[18px] px-4
+              text-white mt-3 md:mt-4 max-w-[850px]
+              text-[14px] sm:text-[15px] md:text-[17px] px-3
             "
           >
             From residential apartments to institutional campuses and modern villas,
@@ -112,24 +113,23 @@ export default function HeroSection() {
           {/* BUTTONS */}
           <motion.div
             {...slideUpAnimation}
-           className="
-  flex gap-4 mt-5 mb-5
-  flex-col max-sm:flex-col
-  sm:flex-row
-"
-
+            className="
+              flex flex-col sm:flex-row
+              w-full max-w-[450px]
+              gap-3 sm:gap-4 mt-5 mb-6
+            "
           >
             <Link
               to="/projects"
               className="
                 text-[#3C2B98] font-semibold 
-                px-6 py-3 rounded-t-xl rounded-b-none 
+                px-6 py-3 rounded-t-xl rounded-b-none
                 shadow-md text-center
-                bg-[linear-gradient(90deg,#E5D535_11.81%,#F5F5F5_154.97%)]
-                hover:bg-[linear-gradient(90deg,#E5D535_0%,#E5D535_100%)]
+                bg-gradient-to-r from-[#E5D535] to-[#F5F5F5]
+                hover:from-[#E5D535] hover:to-[#E5D535]
                 transition-all duration-300
                 hover:scale-[1.05] hover:shadow-xl
-                max-sm:w-full
+                w-full sm:w-auto
               "
             >
               View Our Projects
@@ -140,11 +140,10 @@ export default function HeroSection() {
               className="
                 border-2 border-white text-white font-semibold 
                 px-6 py-3 rounded-t-xl rounded-b-none 
-                shadow-md hover:bg-white/20 
-                text-center
+                shadow-md hover:bg-white/20 text-center
                 transition-all duration-300
                 hover:scale-[1.05] hover:shadow-xl
-                max-sm:w-full
+                w-full sm:w-auto
               "
             >
               Request a Site Visit
@@ -153,20 +152,24 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-
       {/* STATS CARDS */}
       <motion.div
         variants={cardContainer}
         initial="hidden"
         animate="visible"
         className="
-          w-full flex justify-center relative 
-    
-          px-4
+          w-full flex justify-center relative
+          -mt-[90px] sm:-mt-[120px] md:-mt-[140px] lg:-mt-[150px]
+          px-5
         "
       >
-        <div className="w-full max-w-[1280px] flex flex-wrap justify-center gap-3 md:gap-5">
-
+        <div
+          className="
+            w-full max-w-[1280px]
+            flex flex-wrap justify-center
+            gap-3 md:gap-5
+          "
+        >
           {stats.map((card, idx) => (
             <motion.div
               key={idx}
@@ -174,7 +177,7 @@ export default function HeroSection() {
               onClick={() => setActiveCard(idx)}
               className={`
                 bg-[#F4F4F4] rounded-t-[10px] text-center
-                w-full sm:w-[48%] md:w-[48%] lg:w-60
+                w-full max-w-[300px] sm:w-[48%] md:w-[48%] lg:w-60
                 py-5 px-4
                 flex flex-col justify-center items-center gap-2
                 cursor-pointer transition-all duration-300
@@ -185,16 +188,16 @@ export default function HeroSection() {
                 }
               `}
             >
-              <h3 className="text-[#F3D32C] font-bold text-[26px] sm:text-[25px] md:text-[28px]">
+              <h3 className="text-[#F3D32C] font-bold text-[22px] sm:text-[24px] md:text-[26px]">
                 {card.title}
               </h3>
 
-              <p className="text-[#3C2B98] font-medium leading-tight text-[14px] md:text-[15px] px-3">
+              <p className="text-[#3C2B98] font-medium leading-tight 
+                text-[13px] sm:text-[14px] md:text-[15px] px-2">
                 {card.text}
               </p>
             </motion.div>
           ))}
-
         </div>
       </motion.div>
     </section>

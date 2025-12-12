@@ -33,8 +33,16 @@ export default function ProjectsGallery() {
   return (
     <section className="w-full flex justify-center bg-[#F4F4F4] py-12 md:py-16">
       <div className="w-full max-w-[1300px] px-4 md:px-8">
-        {/* ----------------------- TABS ----------------------- */}
-        <div className="flex items-center gap-6 text-sm font-semibold text-[#555] mb-10 border-b border-black/5 pb-3">
+      {/* ----------------------- TABS ----------------------- */}
+        <div
+          className="
+            flex items-center gap-4 sm:gap-6
+            text-xs sm:text-sm font-semibold text-[#555]
+            mb-6 sm:mb-10 border-b border-black/5 pb-2 sm:pb-3
+            overflow-x-auto whitespace-nowrap scrollbar-hide
+            px-1
+          "
+        >
           {TABS.map((tab) => (
             <button
               key={tab}

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const GetinTouch = () => {
   return (
   <>
-  <div className='bg-[#F4F4F4]'>
+  <div className='bg-[#F4F4F4] mb-16'>
     {/* PURPLE CTA STRIP */}
         <div className="bg-[#3C2B98] rounded-t-[48px] rounded-b-none px-6 sm:px-10 py-10 sm:py-12 text-center">
           

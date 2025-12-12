@@ -53,21 +53,21 @@ export default function ApexProjectsSection() {
     {
       title: "Arka Gardens",
       location: "Reddypalli, Anantapuramu",
-      desc: "1,30,000 sq.ft campus (cellar + ground + 5 floors), project value approx. ₹20 Cr.",
+      desc: "1,30,000 sq.ft campus, value approx. ₹20 Cr.",
       img: "/Cardimg.png",
       category: "completed",
     },
     {
       title: "Sri Chaitanya School",
       location: "Anantapuramu",
-      desc: "1,30,000 sq.ft campus (cellar + ground + 5 floors), project value approx. ₹20 Cr.",
+      desc: "1,30,000 sq.ft campus, value approx. ₹20 Cr.",
       img: "/Cardimg.png",
       category: "upcoming",
     },
     {
       title: "Green Meadows",
       location: "Dharmavaram Road",
-      desc: "1,30,000 sq.ft campus (cellar + ground + 5 floors), project value approx. ₹20 Cr.",
+      desc: "1,30,000 sq.ft campus, value approx. ₹20 Cr.",
       img: "/Cardimg.png",
       category: "ongoing",
     },
@@ -92,18 +92,19 @@ export default function ApexProjectsSection() {
   }, [activeTab]);
 
   return (
-    <section className="w-full bg-white flex justify-center overflow-x-hidden">
+    <section className="w-full bg-white flex justify-center">
       <motion.div
-        className="w-full max-w-[1290px] px-4 sm:px-6 md:px-10 py-[50px]"
+        className="w-full max-w-[1290px] px-4 md:px-10 py-[40px] md:py-[50px]"
         variants={container}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
+
         {/* TITLE */}
         <motion.h2
           variants={item}
-          className="text-center text-[32px] sm:text-[38px] md:text-[45px] font-semibold mb-8"
+          className="text-center text-[32px] md:text-[45px] font-semibold mb-8"
         >
           <span className="text-[#3C2B98]">Our </span>
           <span className="text-[#E5D535]">Projects</span>
@@ -112,27 +113,48 @@ export default function ApexProjectsSection() {
         {/* FILTER TABS */}
         <motion.div
           variants={item}
-          className="relative mb-6 flex flex-wrap gap-4 text-[16px] font-medium text-gray-500 w-full"
+          className="
+            relative mb-6 flex 
+            gap-4 md:gap-8
+            text-[13px] md:text-[16px]
+            font-medium text-gray-500
+            w-full overflow-x-auto scrollbar-hide
+            whitespace-nowrap
+            pb-2
+            bg-white
+            border-none !border-0 !border-b-0 !outline-0
+          "
         >
           {tabs.map((tab, index) => (
             <button
               key={tab}
               ref={(el) => (tabRefs.current[index] = el)}
               onClick={() => setActiveTab(tab)}
-              className={`pb-1 transition-all ${
-                activeTab === tab
-                  ? "text-[#3C2B98] font-semibold"
-                  : "text-gray-500"
-              }`}
+              className={`
+                pb-1 px-2 md:px-0
+                transition-all
+                ${
+                  activeTab === tab
+                    ? "text-[#3C2B98] font-semibold"
+                    : "text-gray-500"
+                }
+              `}
             >
               {tab}
             </button>
           ))}
 
-          {/* UNDERLINE */}
+          {/* Underline */}
           <div
             ref={underlineRef}
-            className="absolute bottom-0 h-0.5 bg-[#3C2B98] transition-all duration-300"
+            className="
+              absolute bottom-0 
+              h-[2px] md:h-[3px]
+              bg-[#3C2B98]
+              rounded-full
+              transition-[left,width] duration-300 ease-out
+              z-10
+            "
             style={{ width: 0, left: 0 }}
           />
         </motion.div>
@@ -142,12 +164,11 @@ export default function ApexProjectsSection() {
           variants={item}
           className="
             grid 
-            grid-cols-1 
-            sm:grid-cols-2 
-            md:grid-cols-2 
-            lg:grid-cols-3 
-            xl:grid-cols-4 
-            gap-5
+            sm:grid-cols-1
+            md:grid-cols-2
+            lg:grid-cols-3
+            xl:grid-cols-4
+            gap-4 md:gap-5
           "
         >
           {filteredProjects.map((p, i) => (
@@ -158,7 +179,7 @@ export default function ApexProjectsSection() {
                 group
                 border border-gray-200 
                 rounded-[10px]
-                bg-[#F5F5F5] 
+                bg-[#F5F5F5]
                 overflow-hidden
                 w-full
               "
@@ -167,11 +188,11 @@ export default function ApexProjectsSection() {
                 <img
                   src={p.img}
                   alt={p.title}
-                  className="w-full h-[200px] object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-[180px] md:h-[200px] object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
 
-              <div className="px-4 py-4">
+              <div className="px-3 md:px-4 py-4">
                 <h3 className="text-[15px] font-semibold text-[#333]">
                   {p.title}
                 </h3>
@@ -183,16 +204,17 @@ export default function ApexProjectsSection() {
                 <Link
                   to={`/projects/${p.title.replace(/\s+/g, "-").toLowerCase()}`}
                   className="
-                    mt-3 w-full h-9
+                    mt-3
+                    w-full
+                    h-9
                     bg-gradient-to-r from-[#3C2B98] to-[#8F84FF]
                     text-white
-                    rounded-t-xl
-                    text-[14px]
+                    rounded-t-xl rounded-b-none
+                    text-[16px]
                     font-medium
                     flex items-center justify-center
-                    overflow-hidden
                     transition-all duration-300
-                    hover:bg-[#3C2B98]
+                    hover:bg-[linear-gradient(90deg,#3C2B98_0%,#3C2B98_100%)]
                   "
                 >
                   View Project
@@ -207,16 +229,15 @@ export default function ApexProjectsSection() {
           <Link to="/projects">
             <button
               className="
-                px-6 py-3 mt-5
-                rounded-t-xl
-                text-[#3C2B98]
+                px-5 py-3
+                rounded-t-xl rounded-b-none
+                text-white
                 font-semibold
-                text-[16px]
+                text-[15px] md:text-[16px]
                 shadow
-                overflow-hidden
-                bg-[linear-gradient(90deg,#E5D535_11.81%,#F5F5F5_154.97%)]
                 transition-all duration-300
-                hover:bg-[linear-gradient(90deg,#E5D535_0%,#E5D535_100%)]
+                bg-gradient-to-r from-[#E5D535] to-[#F5F5F5]
+                hover:from-[#E5D535] hover:to-[#E5D535]
               "
             >
               Explore More Projects
